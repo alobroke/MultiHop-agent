@@ -1,3 +1,8 @@
 huggingface_hub
 python-dotenv
 tavily-python
+google-genai
+python-dotenv
+tavily-python
+chromadb
+sentence-transformers

@@ -1,24 +1,28 @@
+
 import os
+
 from dotenv import load_dotenv
-from huggingface_hub import InferenceClient
+from google import genai
 
 load_dotenv()
 
-client = InferenceClient(
-    api_key=os.getenv("HUGGINGFACEHUB_API_TOKEN")
-)
+API_KEY = os.getenv("GEMINI_API_KEY")
+MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
 
-MODEL = "Qwen/Qwen3-32B"
+if not API_KEY:
+    raise ValueError("GEMINI_API_KEY is missing from .env")
+
+client = genai.Client(api_key=API_KEY)
 
 
-def ask_llm(prompt):
-
-    response = client.chat.completions.create(
+def ask_llm(prompt: str) -> str:
+    """Send a prompt to Gemini and return its text response."""
+    response = client.models.generate_content(
         model=MODEL,
-        messages=[
-            {"role": "user", "content": prompt}
-        ],
-        max_tokens=2000
+        contents=prompt,
     )
 
-    return response.choices[0].message.content or ""
+    if not response.text:
+        raise RuntimeError("Gemini returned an empty response.")
+
+    return response.text.strip()

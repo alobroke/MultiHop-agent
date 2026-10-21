@@ -1,5 +1,2 @@
 from llm import ask_llm
-
-response = ask_llm("What is an AI agent? Explain in 2 lines.")
-
-print(response)
+print(ask_llm("Explain multi-hop research agents in two sentences."))

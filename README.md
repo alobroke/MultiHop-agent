@@ -249,18 +249,3 @@ Prompt instructions are helpful but not a complete security boundary.
 Treating source content as untrusted must be reinforced by
 application-level controls.
 
-## Current scope
-
-This is a prototype, not a guarantee of factual correctness. The current
-design uses a pre-answer evidence critic and a bounded retrieval loop. A
-separate post-answer citation-checking critic would be a useful next
-improvement: it would check each generated claim against its cited
-passage before the response is displayed.
-
-Other possible future improvements include PDF/DOCX ingestion, tests for
-citation mismatches, source-domain policies, and explicit detection of
-contradictory claims.
-
-## License
-
-Add the license that applies to this project before distributing it.

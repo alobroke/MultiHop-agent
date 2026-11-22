@@ -833,13 +833,6 @@ The project emphasizes not only producing an answer, but also making the researc
 
 ---
 
-## 👨‍💻 Author
-
-Developed and maintained by [alobroke](https://github.com/alobroke).
-
-**Repository:** https://github.com/alobroke/MultiHop-agent
-
----
 
 <div align="center">
 
